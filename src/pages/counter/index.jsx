@@ -6,7 +6,12 @@ export default function CounterPage() {
   return (
     <>
       <Center>
-        <VStack border={"1px solid gray"} mt={50} padding={50}>
+        <VStack
+          border={"1px solid gray"}
+          mt={50}
+          padding={50}
+          borderRadius={10}
+        >
           <Text fontSize={"6xl"}>Counter Page</Text>
           <Text fontSize={"xxx-large"}>{count}</Text>
 

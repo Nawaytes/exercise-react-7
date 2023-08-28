@@ -16,7 +16,7 @@ export default function NavBar() {
           <Link to='/stopwatch'>Stopwatch</Link>
           <Link to='/fetch-api'>Fetch Api</Link>
           <Link to='/filter-page'>Filter Page</Link>
-          <Link to='/chitchat'>Filter Page</Link>
+          <Link to='/chitchat'>Chitchat</Link>
         </HStack>
       </Flex>
     </>

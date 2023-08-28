@@ -4,6 +4,7 @@ import {
   Grid,
   Image,
   Input,
+  Skeleton,
   Table,
   TableCaption,
   TableContainer,
@@ -81,9 +82,9 @@ export default function FilterPage() {
             <TableCaption>Imperial to metric conversion factors</TableCaption>
             <Thead>
               <Tr>
-                <Th>Image</Th>
-                <Th>Name</Th>
-                <Th isNumeric>Email</Th>
+                <Th minWidth={100}>Image</Th>
+                <Th minWidth={200}>Name</Th>
+                <Th minWidth={200}>Email</Th>
               </Tr>
             </Thead>
             <Tbody>
@@ -103,7 +104,15 @@ export default function FilterPage() {
                 ))
               ) : (
                 <Tr>
-                  <Td colSpan={3}>No Data</Td>
+                  <Td>
+                    <Skeleton height='20px' width={"100%"} />
+                  </Td>
+                  <Td>
+                    <Skeleton height='20px' />
+                  </Td>
+                  <Td>
+                    <Skeleton height='20px' />
+                  </Td>
                 </Tr>
               )}
             </Tbody>
