@@ -44,6 +44,7 @@ export default function FilterPage() {
 
   useEffect(() => {
     updateFilter(search);
+    // eslint-disable-next-line
   }, [search]);
 
   const handlerSearch = (e) => {
@@ -53,13 +54,20 @@ export default function FilterPage() {
 
   return (
     <>
-      <Flex position={"fixed"} top={"0"}>
+      <Flex
+        position={"fixed"}
+        top={"0"}
+        width={"100vw"}
+        bgColor={"white"}
+        pb={"5px"}
+        mt={"30"}
+      >
         <Grid
           width={"40vw"}
           templateColumns={"1fr 3fr 1fr"}
-          mt={"5px"}
           gap={"10px"}
           alignItems={"center"}
+          margin={"auto"}
         >
           <Text textAlign={"center"}>Filter By Name</Text>
           <Input placeholder='Filter' onChange={handlerSearch} />
@@ -67,8 +75,8 @@ export default function FilterPage() {
         </Grid>
       </Flex>
 
-      <VStack width={"100vw"}>
-        <TableContainer>
+      <VStack width={"100vw"} mt={"90px"}>
+        <TableContainer border={"1px solid #bbbbbb"} borderRadius={"10px"}>
           <Table variant='striped' colorScheme='gray'>
             <TableCaption>Imperial to metric conversion factors</TableCaption>
             <Thead>
