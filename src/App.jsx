@@ -4,6 +4,7 @@ import "./App.css";
 import Stopwatch from "./pages/stopwatch";
 import FetchApi from "./pages/fetchApi";
 import NotFound from "./pages/notFound";
+import FilterPage from "./pages/filter";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path='*' element={<NotFound />} />
           <Route path='/stopwatch' element={<Stopwatch />} />
           <Route path='/fetch-api' element={<FetchApi />} />
+          <Route path='/filter-page' element={<FilterPage />} />
         </Routes>
       </Router>
     </>

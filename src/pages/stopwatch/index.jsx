@@ -15,16 +15,7 @@ export default function Stopwatch() {
   const toStringPadStart = (num) => {
     return String(num).padStart(2, "0");
   };
-
-  //   const changeInterval = () => {
-  //     const intervalId = setInterval(() => {
-  //       setTime(time + 1);
-  //     }, 10);
-  //     return () => clearInterval(intervalId);
-  //   };
   useEffect(() => {
-    console.log("time", time);
-    console.log("isRunning", isRunning);
     if (isRunning) {
       const intervalId = setInterval(() => {
         setTime(time + 1);
