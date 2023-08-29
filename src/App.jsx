@@ -6,6 +6,8 @@ import NotFound from "./pages/notFound";
 import FilterPage from "./pages/filter";
 import NavBar from "./components/NavBar";
 import CounterPage from "./pages/counter";
+import HomePage from "./pages/home";
+import ListPage from "./pages/home/List";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path='/fetch-api' element={<FetchApi />} />
           <Route path='/filter-page' element={<FilterPage />} />
           <Route path='/counter' element={<CounterPage />} />
+          <Route path='/' element={<HomePage />} />
+          <Route path='/list' element={<ListPage />} />
         </Routes>
       </Router>
     </>
