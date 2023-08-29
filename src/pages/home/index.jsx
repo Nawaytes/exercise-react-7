@@ -8,17 +8,21 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { redirect } from "react-router-dom";
 
 export default function HomePage() {
   const [message, setMessage] = useState("");
+  const [listReply, setListReply] = useState(() => {
+    const storedReply = localStorage.getItem("replyChat");
+    return storedReply ? JSON.parse(storedReply) : [];
+  });
+
   useEffect(() => {
-    localStorage.clear("replyChat");
-  }, []);
+    localStorage.setItem("replyChat", JSON.stringify(listReply));
+  }, [listReply]);
 
   const sendMessage = () => {
     console.log("message", message);
-    localStorage.setItem("replyChat", message);
+    setListReply([...listReply, message]);
     window.location.href = "/list";
   };
   return (
@@ -52,7 +56,10 @@ export default function HomePage() {
         <Grid templateColumns={"5fr 1fr"} gap={"10px"}>
           <Input
             placeholder='Type message here...'
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={
+              (e) => setMessage(e.target.value)
+              // setMessage(e.target.value)
+            }
           />
           <Button onClick={sendMessage}>Send</Button>
         </Grid>

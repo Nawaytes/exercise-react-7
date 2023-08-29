@@ -8,23 +8,26 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
-import { redirect } from "react-router-dom";
 
 export default function ListPage() {
   const listRef = useRef(null);
 
   const [message, setMessage] = useState("");
-  const [reply, setReply] = useState([]);
-  useEffect(() => {
-    setReply([localStorage.getItem("replyChat")]);
-  }, []);
+  const [reply, setReply] = useState(() => {
+    const storedReply = localStorage.getItem("replyChat");
+    return storedReply ? JSON.parse(storedReply) : [];
+  });
+
   useEffect(() => {
     listRef.current?.lastElementChild?.scrollIntoView();
+    localStorage.setItem("replyChat", JSON.stringify(reply));
   }, [reply]);
+
   const sendMessage = () => {
     setMessage("");
     setReply([...reply, message]);
   };
+
   return (
     <Center height={"100vh"} mt={"20px"}>
       <VStack
