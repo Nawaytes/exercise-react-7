@@ -1,8 +1,15 @@
 import { Button, Center, Text, VStack } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { decrement, increment } from "../../app/features/counter/counterSlicer";
 
 export default function CounterPage() {
-  const [count, setCount] = useState(0);
+  // const count2 = useSelector((state) => state);
+  const counter = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
+
+  // const [count, setCount] = useState(0);
+
   return (
     <>
       <Center>
@@ -12,14 +19,15 @@ export default function CounterPage() {
           padding={50}
           borderRadius={10}
         >
-          <Text fontSize={"6xl"}>Counter Page</Text>
-          <Text fontSize={"xxx-large"}>{count}</Text>
+          <Text fontSize={"6xl"}>Counter Page using Redux</Text>
+          <Text fontSize={"xxx-large"}>{counter}</Text>
 
           <Button
             colorScheme={"blue"}
             width={200}
             onClick={() => {
-              setCount(count + 1);
+              dispatch(increment());
+              // setCount(count + 1);
             }}
           >
             Increment
@@ -28,7 +36,8 @@ export default function CounterPage() {
             colorScheme={"red"}
             width={200}
             onClick={() => {
-              setCount(count - 1);
+              dispatch(decrement());
+              // setCount(count - 1);
             }}
           >
             Decrement
